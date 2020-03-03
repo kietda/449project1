@@ -8,14 +8,19 @@ Run: python pr1j.py
 Let it run, and open another terminal for operations.
 Create new post:
 curl -i -H "Content-Type:application/json" -X POST -d '{"title":"firefox","text":"Firefox is showing the way back to a world that’s private by default","community":"Technology", "url":"https://www.theverge.com/tech/2020/2/26/21153525/firefox-dns-encryption-amazon-go-browsing-shopping-privacy","username":"test1","date":"2020/03/01"}' http://localhost:5000/todo/api/v1.0/posts
+or:
+curl -i -H "Content-Type:application/json" -X POST -d '{"title":"sales","text":"Firefox is showing the way back to a world that’s private by default","community":"Sales", "url":"https://www.theverge.com/tech/2020/2/26/21153525/firefox-dns-encryption-amazon-go-browsing-shopping-privacy","username":"test1","date":"2020/03/01"}' http://localhost:5000/todo/api/v1.0/posts
+Test HTTP 409 CONFLICT:
+curl -i -H "Content-Type:application/json" -X POST -d '{"id":"1","title":"cause conflict 409","text":"Firefox is showing the way back to a world that’s private by default","community":"Technology", "url":"https://www.theverge.com/tech/2020/2/26/21153525/firefox-dns-encryption-amazon-go-browsing-shopping-privacy","username":"test1","date":"2020/03/01"}' http://localhost:5000/todo/api/v1.0/posts
 Delete an existing post:
-curl -X DELETE http://localhost:5000/todo/api/v1.0/posts/1
+curl -i -X DELETE http://localhost:5000/todo/api/v1.0/posts/1
 Retrieve an existing post
 curl -i http://localhost:5000/todo/api/v1.0/posts/1
-
-Not finished:
-List the n most recent posts to a particular community
-List the n most recent posts to any community
+List the n most recent posts to a particular community:
+curl -i http://localhost:5000/todo/api/v1.0/posts/recent/Technology/3
+curl -i http://localhost:5000/todo/api/v1.0/posts/recent/Sales/3
+List the n most recent posts to any community:
+curl -i http://localhost:5000/todo/api/v1.0/posts/recent/6
 
 Database:(id, title, text, community, url, username, date)
 Github link:
