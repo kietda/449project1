@@ -7,8 +7,10 @@ sudo apt install python3-pip)
 
 Go to the project folder, open terminal
 Run: python3 createdb.py		>> to create new database
-Run: python3 prj1.py
-Let it run, and open another terminal for operations.
+Run: python3 micro1.py
+Open another terminal:
+	Run: python3 micro2.py
+Open another terminal for operations.
 
 POST MICRSOSERVICE:
 Create new post: (without date in curl)
@@ -29,18 +31,18 @@ curl -i http://localhost:5000/todo/api/v1.0/posts/recent/6
 
 USER MICRO SERVICE:
 • Create user
-curl -i -H "Content-Type:application/json" -X POST -d '{"username":"tester3","email":"tester3@gmail.com","karma":0}' http://localhost:5000/todo/api/v1.0/users
+curl -i -H "Content-Type:application/json" -X POST -d '{"username":"tester3","email":"tester3@gmail.com","karma":0}' http://localhost:5100/todo/api/v1.0/users
 - Test HTTP 409 CONFLICT (duplicate value: username already exists) >> run the above cmd again
 • Update email
-curl -i -H "Content-Type:application/json" -X PUT -d '{"email":"tester3_update@gmail.com","username":"tester3"}' http://localhost:5000/todo/api/v1.0/users
+curl -i -H "Content-Type:application/json" -X PUT -d '{"email":"tester3_update@gmail.com","username":"tester3"}' http://localhost:5100/todo/api/v1.0/users
 • Increment Karma
-curl -i -H "Content-Type:application/json" -X PUT -d '{"username":"tester3"}' http://localhost:5000/todo/api/v1.0/users/inckarma
+curl -i -H "Content-Type:application/json" -X PUT -d '{"username":"tester3"}' http://localhost:5100/todo/api/v1.0/users/inckarma
 • Decrement Karma
-curl -i -H "Content-Type:application/json" -X PUT -d '{"username":"tester3"}' http://localhost:5000/todo/api/v1.0/users/deckarma
+curl -i -H "Content-Type:application/json" -X PUT -d '{"username":"tester3"}' http://localhost:5100/todo/api/v1.0/users/deckarma
 • Deactivate account
-curl -i -H "Content-Type:application/json" -X PUT -d '{"username":"tester3"}' http://localhost:5000/todo/api/v1.0/users/deactivate
+curl -i -H "Content-Type:application/json" -X PUT -d '{"username":"tester3"}' http://localhost:5100/todo/api/v1.0/users/deactivate
 - Try to add a new post using this account: (will cause 409 conflict)
-curl -i -H "Content-Type:application/json" -X POST -d '{"title":"Socimedia","text":"something","community":"Technology", "url":"something","username":"tester3"}' http://localhost:5000/todo/api/v1.0/posts
+curl -i -H "Content-Type:application/json" -X POST -d '{"title":"Socimedia","text":"something","community":"Technology", "url":"something","username":"tester3"}' http://localhost:5100/todo/api/v1.0/posts
 
 Database:
 posts(id, title, text, community, url, username, date)
@@ -49,6 +51,6 @@ Github link:
 git@github.com:kietda/449project1.git
 Temporary operations (for test)
 curl -i http://localhost:5000/todo/api/v1.0/posts	(list all post)
-curl -i http://localhost:5000/todo/api/v1.0/users	(list all users)
+curl -i http://localhost:5100/todo/api/v1.0/users	(list all users)
 Software to open a .db files:
 sudo apt-get install sqlitebrowser
