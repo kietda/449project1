@@ -19,7 +19,7 @@ Steps:
 Note: I configured docker to build the container image with ubuntu16.04, python3, and flask installed (check Dockerfile). Everything should automate on its own.
       The built image will need 440MB of space, 124MB for ubuntu 16.04, and 136MB for postman/newman.
 
-6) Execution and test with no load:
+6) Execute and test with no load:
     $ docker-compose up
 
 6.1) Test with load:
