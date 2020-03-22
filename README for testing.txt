@@ -32,7 +32,7 @@ Note: I configured docker to build the container image with ubuntu16.04, python3
     $ docker-compose logs --no-color bogus_test > bogus_test_log.txt
     $ docker-compose logs --no-color neg_test > neg_test_log.txt
 
-8) Restart and remove running containers
+8) Stop and remove running containers
     $ docker-compose down
 
 
