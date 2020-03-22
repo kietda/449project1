@@ -23,7 +23,7 @@ Note: I configured docker to build a docker image with ubuntu16.04, python3, and
     $ docker-compose up
 
 6.1) Test with load:
-    $ docker-compose up --scale excess_test=<number of containers or "users">
+    $ docker-compose up --scale excess_test=<number of containers or "simulated users">
 
 7) Check docker compose logs
     $ docker-compose logs basic_test
