@@ -1,0 +1,89 @@
+version: "2"
+
+services:
+
+  build_project1:
+    image: cpsc449_project1_group_f
+    build: .
+
+  micro1:
+    image: cpsc449_project1_group_f
+    command: bash -c "cd /home && python3 micro1.py"
+    network_mode: host
+    depends_on:
+      - build_project1
+    # Mount directory for project1.db
+    # <local directory> : <docker container directory> for example...
+    # volumes:
+    #   - /home/ubuntu/cpsc449:/home
+    volumes:
+      - <directory of project1.db>:/home
+
+  micro2:
+    image: cpsc449_project1_group_f
+    command: bash -c "cd /home && python3 micro2.py"
+    network_mode: host
+    depends_on:
+      - build_project1
+    # Mount directory for project1.db
+    # <local directory> : <docker container directory> for example...
+    # volumes:
+    #   - /home/ubuntu/cpsc449:/home
+    volumes:
+      - <directory of project1.db>:/home
+
+  excess_test:
+    image: postman/newman
+    # can change the number of iteration for request and delay between requests:
+    # --iteration-count <number of iterations>
+    # --delay-request <time in milliseconds>
+    command: run excess_test.json --iteration-count 3 --delay-request 250 --silent
+    network_mode: host
+    depends_on:
+      - micro1
+      - micro2
+    # Mount directory for project1.db
+    # <local directory> : <docker container directory> for example...
+    # volumes:
+    #   - /home/ubuntu/cpsc449:/home
+    volumes:
+      - <directory of project1.db>:/etc/newman
+
+  basic_test:
+    image: postman/newman
+    command: run basic_test.json --silent
+    network_mode: host
+    depends_on:
+      - excess_test
+    # Mount directory for project1.db
+    # <local directory> : <docker container directory> for example...
+    # volumes:
+    #   - /home/ubuntu/cpsc449:/home
+    volumes:
+      - <directory of project1.db>:/etc/newman
+
+  bogus_test:
+    image: postman/newman
+    command: run bogus_test.json --silent
+    network_mode: host
+    depends_on:
+      - excess_test
+    # Mount directory for project1.db
+    # <local directory> : <docker container directory> for example...
+    # volumes:
+    #   - /home/ubuntu/cpsc449:/home
+    volumes:
+      - <directory of project1.db>:/etc/newman
+
+  neg_test:
+    image: postman/newman
+    command: run neg_test.json --silent
+    network_mode: host
+    depends_on:
+      - excess_test
+    # Mount directory for project1.db
+    # <local directory> : <docker container directory> for example...
+    # volumes:
+    #   - /home/ubuntu/cpsc449:/home
+    volumes:
+      - <directory of project1.db>:/etc/newman
