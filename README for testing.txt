@@ -12,7 +12,7 @@ Steps:
 4) Create the database; docker will access the directory of project1.db
     $ python3 createdb.py
 
-5) Open docker-compose.yml and change "volume" directory to where source files are located; additional information in the docker-compose.yml file.
+5) Open docker-compose.yml with a text editor and change "volume" directory to where source files are located; additional information in the docker-compose.yml file.
 
 Note: I configured docker to build the container image with ubuntu16.04, python3, and flask installed. Everything should automate on its own.
 
