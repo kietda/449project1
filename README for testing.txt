@@ -1,7 +1,9 @@
 Steps:
 
-1) Install Postman application to inspect url postman requests (aka "collections")
+1) Install Postman application
     https://www.postman.com
+
+1.1) Import the "collections" (basic_test.json, excess_test.json, bogus_test.json, and neg_test.json) to inspect postman curl requests
 
 2) Install Docker
     https://docs.docker.com
