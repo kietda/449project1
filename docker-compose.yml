@@ -42,7 +42,7 @@ services:
     depends_on:
       - micro1
       - micro2
-    # Mount directory for project1.db
+    # Mount directory for excess_test.json
     # <local directory> : <docker container directory> for example...
     # volumes:
     #   - /home/ubuntu/cpsc449:/home
@@ -55,7 +55,7 @@ services:
     network_mode: host
     depends_on:
       - excess_test
-    # Mount directory for project1.db
+    # Mount directory for basic_test.json
     # <local directory> : <docker container directory> for example...
     # volumes:
     #   - /home/ubuntu/cpsc449:/home
@@ -68,7 +68,7 @@ services:
     network_mode: host
     depends_on:
       - excess_test
-    # Mount directory for project1.db
+    # Mount directory for bogus_test.json
     # <local directory> : <docker container directory> for example...
     # volumes:
     #   - /home/ubuntu/cpsc449:/home
@@ -81,7 +81,7 @@ services:
     network_mode: host
     depends_on:
       - excess_test
-    # Mount directory for project1.db
+    # Mount directory for neg_test.json
     # <local directory> : <docker container directory> for example...
     # volumes:
     #   - /home/ubuntu/cpsc449:/home
