@@ -3,7 +3,7 @@ Steps:
 1) Install Postman application
     https://www.postman.com
 
-1.1) Import the "collections" (basic_test.json, excess_test.json, bogus_test.json, and neg_test.json) to inspect postman curl requests
+1.1) Import the "collections" (basic_test.json, excess_test.json, bogus_test.json, and neg_test.json) to inspect postman requests
 
 2) Install Docker
     https://docs.docker.com
@@ -39,5 +39,5 @@ Note: I configured docker to build a docker image with ubuntu16.04, python3, and
     $ docker-compose down
 
 
-Note: To remove dangling docker image (name with "<none>")
+Note: When deleting images, to remove dangling docker image (name with "<none>")
     $ docker rmi $(docker images -q -f dangling=true)
