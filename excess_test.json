@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "cfe9631c-0bae-4910-a76d-4cc00896e46d",
+		"_postman_id": "b129916d-ca7a-4098-b971-df7ca69a6b66",
 		"name": "excess_test",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -35,10 +35,10 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:5000/todo/api/v1.0/posts",
+							"raw": "http://{{localhost}}:5000/todo/api/v1.0/posts",
 							"protocol": "http",
 							"host": [
-								"localhost"
+								"{{localhost}}"
 							],
 							"port": "5000",
 							"path": [
@@ -81,10 +81,10 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:5000/todo/api/v1.0/posts/3",
+							"raw": "http://{{localhost}}:5000/todo/api/v1.0/posts/3",
 							"protocol": "http",
 							"host": [
-								"localhost"
+								"{{localhost}}"
 							],
 							"port": "5000",
 							"path": [
@@ -116,10 +116,10 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:5000/todo/api/v1.0/posts/recent/Technology/3",
+							"raw": "http://{{localhost}}:5000/todo/api/v1.0/posts/recent/Technology/3",
 							"protocol": "http",
 							"host": [
-								"localhost"
+								"{{localhost}}"
 							],
 							"port": "5000",
 							"path": [
@@ -155,10 +155,10 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:5000/todo/api/v1.0/posts/recent/6",
+							"raw": "http://{{localhost}}:5000/todo/api/v1.0/posts/recent/6",
 							"protocol": "http",
 							"host": [
-								"localhost"
+								"{{localhost}}"
 							],
 							"port": "5000",
 							"path": [
@@ -210,10 +210,10 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:5000/todo/api/v1.0/posts/{{delete_recent_post_id_num}}",
+							"raw": "http://{{localhost}}:5000/todo/api/v1.0/posts/{{delete_recent_post_id_num}}",
 							"protocol": "http",
 							"host": [
-								"localhost"
+								"{{localhost}}"
 							],
 							"port": "5000",
 							"path": [
@@ -248,10 +248,10 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:5100/todo/api/v1.0/users",
+							"raw": "http://{{localhost}}:5100/todo/api/v1.0/users",
 							"protocol": "http",
 							"host": [
-								"localhost"
+								"{{localhost}}"
 							],
 							"port": "5100",
 							"path": [
@@ -279,10 +279,10 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:5100/todo/api/v1.0/users/deactivate",
+							"raw": "http://{{localhost}}:5100/todo/api/v1.0/users/deactivate",
 							"protocol": "http",
 							"host": [
-								"localhost"
+								"{{localhost}}"
 							],
 							"port": "5100",
 							"path": [
@@ -311,10 +311,10 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:5100/todo/api/v1.0/users",
+							"raw": "http://{{localhost}}:5100/todo/api/v1.0/users",
 							"protocol": "http",
 							"host": [
-								"localhost"
+								"{{localhost}}"
 							],
 							"port": "5100",
 							"path": [
@@ -342,10 +342,10 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:5100/todo/api/v1.0/users/inckarma",
+							"raw": "http://{{localhost}}:5100/todo/api/v1.0/users/inckarma",
 							"protocol": "http",
 							"host": [
-								"localhost"
+								"{{localhost}}"
 							],
 							"port": "5100",
 							"path": [
@@ -374,10 +374,10 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:5100/todo/api/v1.0/users/deckarma",
+							"raw": "http://{{localhost}}:5100/todo/api/v1.0/users/deckarma",
 							"protocol": "http",
 							"host": [
-								"localhost"
+								"{{localhost}}"
 							],
 							"port": "5100",
 							"path": [

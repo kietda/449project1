@@ -1,7 +1,7 @@
 {
 	"info": {
-		"_postman_id": "c8612f50-feb1-4732-8f8a-0099ceb59564",
-		"name": "basic_test",
+		"_postman_id": "fe550ac1-ef12-46ea-a613-3e1e5f4f5521",
+		"name": "bogus_neg_test",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
@@ -9,7 +9,7 @@
 			"name": "micro1",
 			"item": [
 				{
-					"name": "Create new post",
+					"name": "Create post (invalid, null inputs)",
 					"event": [
 						{
 							"listen": "test",
@@ -27,7 +27,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"title\": \"Socimedia\",\n    \"text\": \"Reddit ran wild with Boston bombing conspiracy theories in 2013\",\n    \"community\": \"Technology\",\n    \"url\": \"https://www.theverge.com/tech/2020/2/26/21153525/firefox-dns-encryption-amazon-go-browsing-shopping-privacy\",\n    \"username\": \"tester1\"\n}",
+							"raw": "{\n    \"title\": 1,\n    \"text\": 1,\n    \"community\": 1,\n    \"url\": 1,\n    \"username\": null\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -35,7 +35,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://{{localhost}}:5000/todo/api/v1.0/posts",
+							"raw": "http://{{localhost}}:5000/todo/api/v1.0/posts/",
 							"protocol": "http",
 							"host": [
 								"{{localhost}}"
@@ -45,14 +45,15 @@
 								"todo",
 								"api",
 								"v1.0",
-								"posts"
+								"posts",
+								""
 							]
 						}
 					},
 					"response": []
 				},
 				{
-					"name": "Delete existing post",
+					"name": "Delete post (invalid url)",
 					"event": [
 						{
 							"listen": "test",
@@ -78,7 +79,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://{{localhost}}:5000/todo/api/v1.0/posts/1",
+							"raw": "http://{{localhost}}:5000/todo/api/v1.0/posts/{{invalid_url}}",
 							"protocol": "http",
 							"host": [
 								"{{localhost}}"
@@ -89,14 +90,14 @@
 								"api",
 								"v1.0",
 								"posts",
-								"1"
+								"{{invalid_url}}"
 							]
 						}
 					},
 					"response": []
 				},
 				{
-					"name": "Retrieve existing post",
+					"name": "Retrieve post (invalid url)",
 					"event": [
 						{
 							"listen": "test",
@@ -125,7 +126,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://{{localhost}}:5000/todo/api/v1.0/posts/3",
+							"raw": "http://{{localhost}}:5000/todo/api/v1.0/posts/{{invalid_url}}",
 							"protocol": "http",
 							"host": [
 								"{{localhost}}"
@@ -136,14 +137,14 @@
 								"api",
 								"v1.0",
 								"posts",
-								"3"
+								"{{invalid_url}}"
 							]
 						}
 					},
 					"response": []
 				},
 				{
-					"name": "List most recent posts to a particular community",
+					"name": "List most recent posts to a particular community (invalid url)",
 					"event": [
 						{
 							"listen": "test",
@@ -160,7 +161,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://{{localhost}}:5000/todo/api/v1.0/posts/recent/Technology/3",
+							"raw": "http://{{localhost}}:5000/todo/api/v1.0/posts/recent/Technology/{{invalid_url}}",
 							"protocol": "http",
 							"host": [
 								"{{localhost}}"
@@ -173,14 +174,14 @@
 								"posts",
 								"recent",
 								"Technology",
-								"3"
+								"{{invalid_url}}"
 							]
 						}
 					},
 					"response": []
 				},
 				{
-					"name": "List most recent posts to any community",
+					"name": "List most recent posts to any community (invalid url)",
 					"event": [
 						{
 							"listen": "test",
@@ -197,7 +198,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://{{localhost}}:5000/todo/api/v1.0/posts/recent/6",
+							"raw": "http://{{localhost}}:5000/todo/api/v1.0/posts/recent/{{invalid_url}}",
 							"protocol": "http",
 							"host": [
 								"{{localhost}}"
@@ -209,7 +210,7 @@
 								"v1.0",
 								"posts",
 								"recent",
-								"6"
+								"{{invalid_url}}"
 							]
 						}
 					},
@@ -222,13 +223,13 @@
 			"name": "micro2",
 			"item": [
 				{
-					"name": "Create a user",
+					"name": "Create a user (invalid, null inputs)",
 					"request": {
 						"method": "POST",
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"username\": \"tester3\",\n    \"email\": \"tester3@gmail.com\",\n    \"karma\": 0\n}",
+							"raw": "{\n    \"username\": 1,\n    \"email\": null,\n    \"karma\": \"hello world!\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -253,13 +254,13 @@
 					"response": []
 				},
 				{
-					"name": "Update email",
+					"name": "Update email (integer, null inputs)",
 					"request": {
 						"method": "PUT",
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"email\": \"tester3_update@gmail.com\",\n    \"username\": \"tester3\"\n}",
+							"raw": "{\n    \"email\": 1,\n    \"username\": null\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -284,13 +285,13 @@
 					"response": []
 				},
 				{
-					"name": "Increment Karma",
+					"name": "Increment Karma (invalid input)",
 					"request": {
 						"method": "PUT",
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"username\": \"tester3\"\n}",
+							"raw": "{\n    \"username\": 1\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -316,13 +317,13 @@
 					"response": []
 				},
 				{
-					"name": "Decrement Karma",
+					"name": "Decrement Karma (null input)",
 					"request": {
 						"method": "PUT",
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"username\": \"tester3\"\n}",
+							"raw": "{\n    \"username\": null\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -348,13 +349,13 @@
 					"response": []
 				},
 				{
-					"name": "Deactivate account",
+					"name": "Deactivate account (null input)",
 					"request": {
 						"method": "PUT",
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"username\": \"tester3\"\n}",
+							"raw": "{\n    \"username\": null\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -403,28 +404,6 @@
 				}
 			],
 			"protocolProfileBehavior": {}
-		}
-	],
-	"event": [
-		{
-			"listen": "prerequest",
-			"script": {
-				"id": "ead57dc9-a8df-41f7-bdb0-a000371c51d2",
-				"type": "text/javascript",
-				"exec": [
-					""
-				]
-			}
-		},
-		{
-			"listen": "test",
-			"script": {
-				"id": "06d84bd3-370f-4c3f-973f-cb58c9362d63",
-				"type": "text/javascript",
-				"exec": [
-					""
-				]
-			}
 		}
 	],
 	"protocolProfileBehavior": {}

@@ -1,57 +1,22 @@
 version: "2"
-
 services:
-
-  build_project1:
-    image: cpsc449_project1_group_f
-    build: .
-
-  micro1:
-    image: cpsc449_project1_group_f
-    command: bash -c "cd /home && python3 micro1.py"
-    network_mode: host
-    depends_on:
-      - build_project1
-    # Mount directory for project1.db
-    # <local directory> : <docker container directory> for example...
-    # volumes:
-    #   - /home/ubuntu/cpsc449:/docker_container_home
-    volumes:
-      - <change to directory of project1.db>:/home
-
-  micro2:
-    image: cpsc449_project1_group_f
-    command: bash -c "cd /home && python3 micro2.py"
-    network_mode: host
-    depends_on:
-      - build_project1
-    # Mount directory for project1.db
-    # <local directory> : <docker container directory> for example...
-    # volumes:
-    #   - /home/ubuntu/cpsc449:/docker_container_home
-    volumes:
-      - <change to directory of project1.db>:/home
-
   excess_test:
     image: postman/newman
     # can change the number of iteration for request and delay between requests:
     # --iteration-count <number of iterations>
     # --delay-request <time in milliseconds>
-    command: run excess_test.json --iteration-count 3 --delay-request 250 --silent
+    command: run excess_test.json --iteration-count 2 --delay-request 250 --globals postman_globals.json --silent
     network_mode: host
-    depends_on:
-      - micro1
-      - micro2
     # Mount directory for excess_test.json
     # <local directory> : <docker container directory> for example...
     # volumes:
     #   - /home/ubuntu/cpsc449:/docker_container_etc/newman
     volumes:
-      - <change to directory of excess_test.json>:/etc/newman
+      - /home/chris24eve/cpsc449:/etc/newman
 
   basic_test:
     image: postman/newman
-    command: run basic_test.json --silent
+    command: run basic_test.json --globals postman_globals.json
     network_mode: host
     depends_on:
       - excess_test
@@ -60,24 +25,11 @@ services:
     # volumes:
     #   - /home/ubuntu/cpsc449:/docker_container_etc/newman
     volumes:
-      - <change to directory of basic_test.json>:/etc/newman
+      - /home/chris24eve/cpsc449:/etc/newman
 
-  bogus_test:
+  bogus_neg_test:
     image: postman/newman
-    command: run bogus_test.json --silent
-    network_mode: host
-    depends_on:
-      - excess_test
-    # Mount directory for bogus_test.json
-    # <local directory> : <docker container directory> for example...
-    # volumes:
-    #   - /home/ubuntu/cpsc449:/docker_container_etc/newman
-    volumes:
-      - <change to directory of bogus_test.json>:/etc/newman
-
-  neg_test:
-    image: postman/newman
-    command: run neg_test.json --silent
+    command: run bogus_neg_test.json --globals postman_globals.json
     network_mode: host
     depends_on:
       - excess_test
@@ -86,4 +38,4 @@ services:
     # volumes:
     #   - /home/ubuntu/cpsc449:/docker_container_etc/newman
     volumes:
-      - <change to directory of neg_test.json>:/etc/newman
+      - /home/chris24eve/cpsc449:/etc/newman
