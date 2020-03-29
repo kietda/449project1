@@ -1,10 +1,10 @@
 # Support Contacts
 
-|        | Team           | Contact Info          	  | Runbook Review        |
-|--------|----------------|---------------------------|-----------------------|
-|   1	 | Developer      | kdang53@csu.fullerton.edu | Kiet Dang - 3/15/2020 |
+|        | Team           | Contact Info          	  			| Runbook Review        		|
+|--------|----------------|-------------------------------------|-------------------------------|
+|   1	 | Developer      | kdang53@csu.fullerton.edu 			| Kiet Dang - 3/15/2020 		|
 |   2	 | Tester         | christian.angeles@csu.fullerton.edu | Christian Angeles - 3/28/2020 |
-|   3	 | Operator       | 		..	              | Arthur..  - -/-/2020  |
+|   3	 | Operator       | 		..	              			| Arthur..  - -/-/2020  		|
 
 
 # Overview
@@ -36,10 +36,10 @@ Following these steps to start the services:
 4. Open another terminal
 4. Executing a linux command:
 	python3 micro2.py
-		>> to run microservice 1
+		>> to run microservice 2
 
 # How to open the database to test changes
-1. Open terminal and execute a linux command to install package "sqlitebrowser"
+1. Open terminal and execute the linux command to install package "sqlitebrowser"
 	sudo apt-get install sqlitebrowser
 2. In Tuffix windows, search and open the package named "DB  Browser for SQLite"
 3. In the project folder, drag the file named "project1.db" to the window "DB  Browser for SQLite"
