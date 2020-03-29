@@ -75,10 +75,15 @@ This was tested on Tuffix environment
 1. install foreman http://blog.daviddollar.org/2011/05/06/introducing-foreman.html
 - $ gem install foreman
 -  $  bundle install
-to check if its installed use 
+2. to check if its installed use 
 -  $ foreman -start 
 2. install Gunicorn3
 $ sudo apt install --yes gunicorn3
 
 3.installing Caddy1
 $ curl https://getcaddy.com | bash -s personal
+# Running the Procfile 
+1. Always use this command for foreman to confirm the micro services are recognized
+$ foreman check
+2. to run the three instances use
+$ foreman start -c 
