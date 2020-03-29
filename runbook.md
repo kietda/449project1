@@ -4,7 +4,7 @@
 |--------|----------------|-------------------------------------|-------------------------------|
 |   1	 | Development      | kdang53@csu.fullerton.edu 			| Kiet Dang - 3/15/2020 		|
 |   2	 | Testing          | christian.angeles@csu.fullerton.edu | Christian Angeles - 3/28/2020 |
-|   3	 | Operations       | 		..	              			| Arthur..  - -/-/2020  		|
+|   3	 | Operations       | art2015@csu.fullerton.edu 	  | Arthur Salazar - 3/29/2020  		|
 
 
 # Overview
@@ -69,3 +69,8 @@ Following these steps to start the services:
     - $ docker-compose logs --no-color bogus_neg_test > bogus_neg_test_log.txt
 12. Stop and remove running containers
     - $ docker-compose down
+# deployment and operations 
+1. install foreman http://blog.daviddollar.org/2011/05/06/introducing-foreman.html
+- $ gem install foreman
+-  $  bundle install
+-  $ foreman -start
