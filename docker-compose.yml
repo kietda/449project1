@@ -21,9 +21,6 @@ services:
     depends_on:
       - excess_test
     # Mount directory for basic_test.json
-    # <local directory> : <docker container directory> for example...
-    # volumes:
-    #   - /home/ubuntu/cpsc449:/docker_container_etc/newman
     volumes:
       - <change to directory of basic_test.json>:/etc/newman
 
@@ -34,8 +31,5 @@ services:
     depends_on:
       - excess_test
     # Mount directory for neg_test.json
-    # <local directory> : <docker container directory> for example...
-    # volumes:
-    #   - /home/ubuntu/cpsc449:/docker_container_etc/newman
     volumes:
       - <change to directory of bogus_neg_test.json>:/etc/newman
