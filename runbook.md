@@ -48,39 +48,35 @@ Following these steps to start the services:
 
 # Test micro services
 1. Install Postman application
-    1. https://www.postman.com
+    - https://www.postman.com
 
 2. Import the "collections" and "global environmentals" (basic_test.json, excess_test.json, bogus_test.json, neg_test.json, and postman_globals.json) to inspect postman requests
 
 3. Install Docker
-    https://docs.docker.com
+    - https://docs.docker.com
 
 4. Install Docker Compose
-    https://docs.docker.com/compose/install
+    - https://docs.docker.com/compose/install
 
-5. Open docker-compose.yml with a text editor and change "volume" directory to where source files are located; additional information and configuration in the docker-compose.yml file.
+5. Open docker-compose.yml with a text editor and change "volume" directory to where source files are located; additional information and configuration in the docker-compose.yml file
 
 6. Run micro services on localhost; docker is configured to connect to micro services outside of containers
 
-7. Execute and test with no load (postman/newman image should be pulled from docker repository automatically):
-    $ docker-compose up
+7. Execute and test with no load (postman/newman image should be pulled from docker repository automatically)
+    - $ docker-compose up
 
-8. Test with load:
-    $ docker-compose up --scale excess_test=<number of containers or "simulated users">
+8. Test with load
+    - $ docker-compose up --scale excess_test=<number of containers or "simulated users">
 
 9. Check docker compose logs
-    $ docker-compose logs basic_test
-    $ docker-compose logs bogus_test
-    $ docker-compose logs neg_test
+    - $ docker-compose logs basic_test
+    - $ docker-compose logs bogus_test
+    - $ docker-compose logs neg_test
 
 10. Save logs to file
-    $ docker-compose logs --no-color basic_test > basic_test_log.txt
-    $ docker-compose logs --no-color bogus_test > bogus_test_log.txt
-    $ docker-compose logs --no-color neg_test > neg_test_log.txt
+    - $ docker-compose logs --no-color basic_test > basic_test_log.txt
+    - $ docker-compose logs --no-color bogus_test > bogus_test_log.txt
+    - $ docker-compose logs --no-color neg_test > neg_test_log.txt
 
 11. Stop and remove running containers
-    $ docker-compose down
-
-
-Note: When deleting images, to remove dangling docker image (name with "<none>")
-    $ docker rmi $(docker images -q -f dangling=true)
+    - $ docker-compose down
