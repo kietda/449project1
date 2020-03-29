@@ -60,7 +60,7 @@ Following these steps to start the services:
 
 5. Open docker-compose.yml with a text editor and change "volume" directory to where source files are located; additional information and configuration in the docker-compose.yml file
 
-6. Run micro services on localhost; docker is configured to connect to micro services outside of containers
+6. Run micro services on localhost; docker and postman requests configured to connect to micro services outside of containers
 
 7. Execute and test with no load (postman/newman image should be pulled from docker repository automatically)
     - $ docker-compose up
@@ -70,13 +70,11 @@ Following these steps to start the services:
 
 9. Check docker compose logs
     - $ docker-compose logs basic_test
-    - $ docker-compose logs bogus_test
-    - $ docker-compose logs neg_test
+    - $ docker-compose logs bogus_neg_test
 
 10. Save logs to file
     - $ docker-compose logs --no-color basic_test > basic_test_log.txt
-    - $ docker-compose logs --no-color bogus_test > bogus_test_log.txt
-    - $ docker-compose logs --no-color neg_test > neg_test_log.txt
+    - $ docker-compose logs --no-color bogus_neg_test > bogus_neg_test_log.txt
 
 11. Stop and remove running containers
     - $ docker-compose down
