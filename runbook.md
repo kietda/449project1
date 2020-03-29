@@ -50,7 +50,7 @@ Following these steps to start the services:
 1. Install Postman application
     - https://www.postman.com
 
-2. Import the "collections" and "global environmentals" (basic_test.json, excess_test.json, bogus_test.json, neg_test.json, and postman_globals.json) to inspect postman requests
+2. Import the "collections" and "global environmentals" (basic_test.json, excess_test.json, bogus_test.json, neg_test.json, and postman_globals.json) to inspect or modify postman requests
 
 3. Install Docker
     - https://docs.docker.com
