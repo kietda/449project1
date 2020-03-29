@@ -49,32 +49,22 @@ Following these steps to start the services:
 # Test micro services
 1. Install Postman application
     - https://www.postman.com
-
-2. Import the "collections" and "global environmentals" (basic_test.json, excess_test.json, bogus_test.json, neg_test.json, and postman_globals.json) to inspect or modify postman requests
-
+2. Import the "collections" and "global environmentals" (basic_test.json, excess_test.json, bogus_neg_test.json and postman_globals.json) to inspect or modify postman requests
 3. Install Docker
     - https://docs.docker.com
-
 4. Install Docker Compose
     - https://docs.docker.com/compose/install
-
 5. Open docker-compose.yml with a text editor and change "volume" directory to where source files are located; additional information and configuration in the docker-compose.yml file
-
 6. Run micro services on localhost; docker and postman requests configured to connect to micro services outside of containers
-
 7. Execute and test with no load (postman/newman image should be pulled from docker repository automatically)
     - $ docker-compose up
-
 8. Test with load
     - $ docker-compose up --scale excess_test=<number of containers or "simulated users">
-
 9. Check docker compose logs
     - $ docker-compose logs basic_test
     - $ docker-compose logs bogus_neg_test
-
 10. Save logs to file
     - $ docker-compose logs --no-color basic_test > basic_test_log.txt
     - $ docker-compose logs --no-color bogus_neg_test > bogus_neg_test_log.txt
-
 11. Stop and remove running containers
     - $ docker-compose down
