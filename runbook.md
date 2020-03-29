@@ -69,8 +69,16 @@ Following these steps to start the services:
     - $ docker-compose logs --no-color bogus_neg_test > bogus_neg_test_log.txt
 12. Stop and remove running containers
     - $ docker-compose down
-# deployment and operations 
+# Deployment and Operations 
+This was tested on Tuffix environment
+# Installation for foreman, Gunicorn3 and Caddy1
 1. install foreman http://blog.daviddollar.org/2011/05/06/introducing-foreman.html
 - $ gem install foreman
 -  $  bundle install
--  $ foreman -start
+to check if its installed use 
+-  $ foreman -start 
+2. install Gunicorn3
+$ sudo apt install --yes gunicorn3
+
+3.installing Caddy1
+$ curl https://getcaddy.com | bash -s personal
