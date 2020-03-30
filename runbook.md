@@ -72,18 +72,24 @@ Following these steps to start the services:
 # Deployment and Operations 
 This was tested on Tuffix environment
 # Installation for foreman, Gunicorn3 and Caddy1
+
 1. install foreman http://blog.daviddollar.org/2011/05/06/introducing-foreman.html
 - $ gem install foreman
 -  $  bundle install
+
 2. to check if its installed use 
 -  $ foreman -start 
+
 2. install Gunicorn3
 $ sudo apt install --yes gunicorn3
 
 3.installing Caddy1
 $ curl https://getcaddy.com | bash -s personal
 # Running the Procfile 
+Before make sure that both the Procfile and Caddyfile are in the same directory as the project folder
+
 1. Always use this command for foreman to confirm the micro services are recognized
 $ foreman check
+
 2. to run the three instances use
 $ foreman start -c 
