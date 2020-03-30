@@ -73,15 +73,11 @@ Following these steps to start the services:
 This was tested on Tuffix environment
 # Installation for foreman, Gunicorn3 and Caddy1
 
-1. install foreman http://blog.daviddollar.org/2011/05/06/introducing-foreman.html
-- $ gem install foreman
--  $  bundle install
-
-2. to check if its installed use 
--  $ foreman -start 
-
-2. install Gunicorn3
+1. install Gunicorn3
 $ sudo apt install --yes gunicorn3
+
+2. install foreman 
+sudo apt install ruby-foreman
 
 3.installing Caddy1
 $ curl https://getcaddy.com | bash -s personal
@@ -91,5 +87,10 @@ Before make sure that both the Procfile and Caddyfile are in the same directory 
 1. Always use this command for foreman to confirm the micro services are recognized
 $ foreman check
 
-2. to run the three instances use
-$ sudo foreman start -c 
+2. to run the three instances for ever microservices (including caddy)
+$ sudo foreman start -m posting=3,user=3,caddy=1
+
+3.2 microservices will be access by:
+http://localhost:2015/posts	(== http://localhost:5000)
+http://localhost:2015/users	(== http://localhost:5000)
+
