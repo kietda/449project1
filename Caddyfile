@@ -3,6 +3,5 @@ localhost/micro1{
 }
 
 localhost/micro2{
-    log stdout
     proxy / http://localhost:5100/votes http://127.0.0.1:5101 http://127.0.0.1:5102 
 }
