@@ -3,5 +3,5 @@ http://localhost:2015/posts{
 }
 
 http://localhost:2015/users{
-    proxy / http://127.0.0.1:5100/5100 http://127.0.0.1:5101 http://127.0.0.1:5102 
+    proxy / http://127.0.0.1:5100 http://127.0.0.1:5101 http://127.0.0.1:5102 
 }
