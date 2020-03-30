@@ -92,4 +92,4 @@ Before make sure that both the Procfile and Caddyfile are in the same directory 
 $ foreman check
 
 2. to run the three instances use
-$ foreman start -c 
+$ sudo foreman start -c 
