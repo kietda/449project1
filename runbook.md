@@ -1,10 +1,10 @@
 # Support Contacts
 
-|        | Team           | Contact Info          	  			| Runbook Review        		|
-|--------|----------------|-------------------------------------|-------------------------------|
+|        | Team           | Contact Info          	  				| Runbook Review        		|
+|--------|----------------|-----------------------------------------|-------------------------------|
 |   1	 | Development      | kdang53@csu.fullerton.edu 			| Kiet Dang - 3/15/2020 		|
-|   2	 | Testing          | christian.angeles@csu.fullerton.edu | Christian Angeles - 3/28/2020 |
-|   3	 | Operations       | art2015@csu.fullerton.edu 	  | Arthur Salazar - 3/29/2020  		|
+|   2	 | Testing          | christian.angeles@csu.fullerton.edu 	| Christian Angeles - 3/28/2020 |
+|   3	 | Operations       | art2015@csu.fullerton.edu 	  		| Arthur Salazar - 3/29/2020  	|
 
 
 # Overview
@@ -90,7 +90,7 @@ $ foreman check
 2. to run the three instances for ever microservices (including caddy)
 $ sudo foreman start -m posting=3,user=3,caddy=1
 
-3.2 microservices will be access by:
-http://localhost:2015/posts	(== http://localhost:5000)
-http://localhost:2015/users	(== http://localhost:5000)
+3. Two microservices will be accessed by:
+http://localhost:2015/posts	(== load balancing, random to http://localhost:5000, http://localhost:5001, http://localhost:5002)
+http://localhost:2015/users	(== load balancing, random to http://localhost:5100, http://localhost:5101, http://localhost:5102)
 

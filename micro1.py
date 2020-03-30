@@ -38,12 +38,6 @@ def get_posts():
     conn.close()
     return jsonify(all_posts)    
 
-#since a web service client applications will expect that we always
-#respond with JSON, so we need to improve our 404 error handler
-# @app.errorhandler(404)
-# def not_found(error):
-#     return make_response(jsonify({'error:':'Not found'}), 404)
-
 #create a new post
 @app.route('/todo/api/v1.0/posts',methods=['POST'])
 def create_post():
