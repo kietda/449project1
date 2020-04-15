@@ -1,10 +1,10 @@
 # Support Contacts
 
-|        | Team           | Contact Info          	  				| Runbook Review        		|
-|--------|----------------|-----------------------------------------|-------------------------------|
+|        | Team           | Contact Info          	  			| Runbook Review        		|
+|--------|----------------|-------------------------------------|-------------------------------|
 |   1	 | Development      | kdang53@csu.fullerton.edu 			| Kiet Dang - 3/15/2020 		|
-|   2	 | Testing          | christian.angeles@csu.fullerton.edu 	| Christian Angeles - 3/28/2020 |
-|   3	 | Operations       | art2015@csu.fullerton.edu 	  		| Arthur Salazar - 3/29/2020  	|
+|   2	 | Testing          | christian.angeles@csu.fullerton.edu | Christian Angeles - 3/28/2020 |
+|   3	 | Operations       | art2015@csu.fullerton.edu 	  | Arthur Salazar - 3/29/2020  		|
 
 
 # Overview
@@ -47,41 +47,46 @@ Following these steps to start the services:
 
 
 # Test micro services
-1. Install Postman application
-    - https://www.postman.com
-2. Import the "collections" and "global" variables (basic_test.json, excess_test.json, bogus_neg_test.json and postman_globals.json) to inspect or modify postman requests
-3. Install Docker
-    - https://docs.docker.com
-4. Install Docker Compose
-    - https://docs.docker.com/compose/install
-5. Open docker-compose.yml with a text editor and change "volume" directory to where source files are located; additional information and configuration in the docker-compose.yml file
-6. Run micro services on localhost; docker and postman requests configured to connect to micro services outside of containers
-7. Change directory to source files (docker-compose.yml and postman JSON files)
-8. Test with no load (postman/newman image should be pulled from docker repository automatically)
-    - $ docker-compose up
-9. Test with load
-    - $ docker-compose up --scale excess_test=<number of containers or "simulated users">
-10. Check docker compose logs
-    - $ docker-compose logs basic_test
-    - $ docker-compose logs bogus_neg_test
-11. Save logs to file
-    - $ docker-compose logs --no-color basic_test > basic_test_log.txt
-    - $ docker-compose logs --no-color bogus_neg_test > bogus_neg_test_log.txt
-12. Stop and remove running containers
-    - $ docker-compose down
-# Deployment and Operations 
+1. Open a terminal to install docker and docker compose
+2. Install Docker (steps from https://docs.docker.com/engine/install/ubuntu/)
+    - $ sudo apt-get update
+		-	$ sudo apt-get install apt-transport-https ca-certificates curl gnupg-agent software-properties-common
+		-	$ curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+		-	$ sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
+		-	$ sudo apt-get update
+		-	$ sudo apt-get install docker-ce docker-ce-cli containerd.io
+3. Install Docker Compose (steps from https://docs.docker.com/compose/install)
+		-	$ sudo curl -L "https://github.com/docker/compose/releases/download/1.25.4/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+		-	$ sudo chmod +x /usr/local/bin/docker-compose
+4. Locate docker-compose.yml in the project folder and open with a text editor. Under "volumes" for excess_test, basic_test, and bogus_neg_test enter the full path directory to where project files are located
+		-	If the project folder was extracted on the TuffixVM's desktop, then by default the volumes are set to "/home/student/Desktop/cpsc449project1"
+5. Open a terminal and run the micro services
+6. Open another terminal and change directory to project folder
+		-	$ cd <directory of project files>
+7. Test with no load
+    - $ sudo docker-compose up
+8. Test with load (TuffixVM might not be able to handle 100 containers at once; start with 10)
+    - An example: --scale excess_test=<number of containers or "simulated users">
+		- $ sudo docker-compose up --scale excess_test=10
+9. Check docker compose logs
+    - $ sudo docker-compose logs basic_test
+    - $ sudo docker-compose logs bogus_neg_test
+10. Stop and remove running containers
+    - $ sudo docker-compose down
+
+# Deployment and Operations
 This was tested on Tuffix environment
 # Installation for foreman, Gunicorn3 and Caddy1
 
 1. install Gunicorn3
 $ sudo apt install --yes gunicorn3
 
-2. install foreman 
+2. install foreman
 sudo apt install ruby-foreman
 
 3.installing Caddy1
 $ curl https://getcaddy.com | bash -s personal
-# Running the Procfile 
+# Running the Procfile
 Before make sure that both the Procfile and Caddyfile are in the same directory as the project folder
 
 1. Always use this command for foreman to confirm the micro services are recognized
@@ -90,7 +95,6 @@ $ foreman check
 2. to run the three instances for ever microservices (including caddy)
 $ sudo foreman start -m posting=3,user=3,caddy=1
 
-3. Two microservices will be accessed by:
-http://localhost:2015/posts	(== load balancing, random to http://localhost:5000, http://localhost:5001, http://localhost:5002)
-http://localhost:2015/users	(== load balancing, random to http://localhost:5100, http://localhost:5101, http://localhost:5102)
-
+3.2 microservices will be access by:
+http://localhost:2015/posts	(== http://localhost:5000)
+http://localhost:2015/users	(== http://localhost:5000)
