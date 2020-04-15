@@ -49,30 +49,30 @@ Following these steps to start the services:
 # Test micro services
 1. Open a terminal to install docker and docker compose
 2. Install Docker (steps from https://docs.docker.com/engine/install/ubuntu/)
-- $ sudo apt-get update
-- $ sudo apt-get install apt-transport-https ca-certificates curl gnupg-agent software-properties-common
-- $ curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
-- $ sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
-- $ sudo apt-get update
-- $ sudo apt-get install docker-ce docker-ce-cli containerd.io
+	- $ sudo apt-get update
+	- $ sudo apt-get install apt-transport-https ca-certificates curl gnupg-agent software-properties-common
+	- $ curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+	- $ sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
+	- $ sudo apt-get update
+	- $ sudo apt-get install docker-ce docker-ce-cli containerd.io
 3. Install Docker Compose (steps from https://docs.docker.com/compose/install)
-- $ sudo curl -L "https://github.com/docker/compose/releases/download/1.25.4/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
-- $ sudo chmod +x /usr/local/bin/docker-compose
+	- $ sudo curl -L "https://github.com/docker/compose/releases/download/1.25.4/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+	- $ sudo chmod +x /usr/local/bin/docker-compose
 4. Locate docker-compose.yml in the project folder and open with a text editor. Under "volumes" for excess_test, basic_test, and bogus_neg_test enter the full path directory to where project files are located
-- If the project folder was extracted on the TuffixVM's desktop, then by default the volumes are set to "/home/student/Desktop/cpsc449project1"
+	- If the project folder was extracted on the TuffixVM's desktop, then by default the volumes are set to "/home/student/Desktop/cpsc449project1"
 5. Open a terminal and run the micro services
 6. Open another terminal and change directory to project folder
-- $ cd <directory of project files>
+	- $ cd /home/student/Desktop/cpsc449project1
 7. Test with no load
-- $ sudo docker-compose up
+	- $ sudo docker-compose up
 8. Test with load (TuffixVM might not be able to handle 100 containers at once; start with 10)
-- An example: --scale excess_test=<number of containers or "simulated users">
-- $ sudo docker-compose up --scale excess_test=10
+	- An example: --scale excess_test=<number of containers or "simulated users">
+	- $ sudo docker-compose up --scale excess_test=10
 9. Check docker compose logs
-- $ sudo docker-compose logs basic_test
-- $ sudo docker-compose logs bogus_neg_test
+	- $ sudo docker-compose logs basic_test
+	- $ sudo docker-compose logs bogus_neg_test
 10. Stop and remove running containers
-- $ sudo docker-compose down
+	- $ sudo docker-compose down
 
 # Deployment and Operations
 This was tested on Tuffix environment
