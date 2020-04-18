@@ -46,18 +46,17 @@ Following these steps to start the services:
 4. Check tables in database if neccessary
 
 
-# Test micro services
+# Test micro services (Tuffix 2019 Edition r2)
 1. Open a terminal to install docker and docker compose
-2. Install Docker (steps from https://docs.docker.com/engine/install/ubuntu/)
-	- $ sudo apt-get update
-	- $ sudo apt-get install apt-transport-https ca-certificates curl gnupg-agent software-properties-common
+2. Install Docker (steps from https://medium.com/@Grigorkh/how-to-install-docker-on-ubuntu-19-04-7ccfeda5935)
 	- $ curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
 	- $ sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable edge test"
 	- $ sudo apt-get update
 	- $ sudo apt-get install docker-ce
-3. Install Docker Compose (steps from https://docs.docker.com/compose/install)
-	- $ sudo curl -L "https://github.com/docker/compose/releases/download/1.25.4/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
-	- $ sudo chmod +x /usr/local/bin/docker-compose
+3. Install Docker Compose (steps from https://www.osradar.com/how-to-install-latest-docker-compose-on-ubuntu-19-04-centos-8-debian-10-fedora-30/)
+	- $ sudo curl -s https://api.github.com/repos/docker/compose/releases/latest | grep browser_download_url | grep docker-compose-Linux-x86_64 | cut -d '"' -f 4 | wget -qi -
+	- $ sudo chmod +x docker-compose-Linux-x86_64
+	- $ sudo mv docker-compose-Linux-x86_64 /usr/local/bin/docker-compose
 4. Locate docker-compose.yml in the project folder and open with a text editor. Under "volumes" for excess_test, basic_test, and bogus_neg_test enter the full path directory to where project files are located
 	- If the project folder was extracted on the TuffixVM's desktop, then by default the volumes are set to "/home/student/Desktop/cpsc449project1"
 5. Open a terminal and run the micro services
