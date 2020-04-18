@@ -51,7 +51,6 @@ Following these steps to start the services:
 2. Install Docker (steps from https://medium.com/@Grigorkh/how-to-install-docker-on-ubuntu-19-04-7ccfeda5935)
 	- $ curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
 	- $ sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable edge test"
-	- $ sudo apt-get update
 	- $ sudo apt-get install docker-ce
 3. Install Docker Compose (steps from https://www.osradar.com/how-to-install-latest-docker-compose-on-ubuntu-19-04-centos-8-debian-10-fedora-30/)
 	- $ sudo curl -s https://api.github.com/repos/docker/compose/releases/latest | grep browser_download_url | grep docker-compose-Linux-x86_64 | cut -d '"' -f 4 | wget -qi -
