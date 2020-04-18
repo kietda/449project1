@@ -56,20 +56,17 @@ Following these steps to start the services:
 	- $ sudo curl -s https://api.github.com/repos/docker/compose/releases/latest | grep browser_download_url | grep docker-compose-Linux-x86_64 | cut -d '"' -f 4 | wget -qi -
 	- $ sudo chmod +x docker-compose-Linux-x86_64
 	- $ sudo mv docker-compose-Linux-x86_64 /usr/local/bin/docker-compose
-4. Locate docker-compose.yml in the project folder and open with a text editor. Under "volumes" for excess_test, basic_test, and bogus_neg_test enter the full path directory to where project files are located
-	- If the project folder was extracted on the TuffixVM's desktop, then by default the volumes are set to "/home/student/Desktop/cpsc449project1"
-5. Open a terminal and run the micro services
-6. Open another terminal and change directory to the project folder
-	- $ cd /home/student/Desktop/cpsc449project1
-7. Test with no load
+4. Open a terminal and run the micro services
+5. Open another terminal and change directory to the project folder
+6. Test with no load
 	- $ sudo docker-compose up
-8. Test with load (TuffixVM might not be able to handle 100 containers at once; start with 10)
+7. Test with load (TuffixVM might not be able to handle 100 containers at once; start with 10)
 	- An example: --scale excess_test=<number of containers or "simulated users">
 	- $ sudo docker-compose up --scale excess_test=10
-9. Check docker compose logs
+8. Check docker compose logs
 	- $ sudo docker-compose logs basic_test
 	- $ sudo docker-compose logs bogus_neg_test
-10. Stop and remove running containers
+9. Stop and remove running containers
 	- $ sudo docker-compose down
 
 # Deployment and Operations
