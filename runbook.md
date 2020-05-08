@@ -25,7 +25,7 @@ Following these steps to start the services:
 	python3 micro1.py
 		>> to run microservice 1
 4. Open another terminal
-4. Executing a linux command:
+5. Executing a linux command:
 	python3 micro2.py
 		>> to run microservice 2
 
@@ -69,7 +69,7 @@ $ sudo apt install --yes gunicorn3
 2. install foreman
 sudo apt install ruby-foreman
 
-3.installing Caddy1
+3. installing Caddy1
 $ curl https://getcaddy.com | bash -s personal
 # Running the Procfile
 Before make sure that both the Procfile and Caddyfile are in the same directory as the project folder
